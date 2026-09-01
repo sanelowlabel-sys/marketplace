@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Polyfill/guard for environments where window.fetch has only a getter
+      (function() {
+        try {
+          var initialFetch = window.fetch ? window.fetch.bind(window) : undefined;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return initialFetch;
+            },
+            set: function(val) {
+              initialFetch = val;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          // Fallback if window already sealed
+        }
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SANE Market - P2P Marketplace</title>
+    <meta name="description" content="Sleek dark-mode peer-to-peer marketplace with real-time chat, radius discovery, listing wizard, and Supabase PostgreSQL schema." />
+    <meta property="og:title" content="SANE Market - P2P Marketplace" />
+    <meta property="og:description" content="Sleek dark-mode peer-to-peer marketplace with real-time chat, radius discovery, listing wizard, and Supabase PostgreSQL schema." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Exo:wght@400;500;600;700&family=Hammersmith+One&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#1a1a1a] text-white antialiased selection:bg-[#BE1E2F] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

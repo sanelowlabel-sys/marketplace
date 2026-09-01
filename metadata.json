@@ -1,0 +1,7 @@
+{
+  "name": "P2P Market - P2P Marketplace",
+  "description": "Sleek dark-mode peer-to-peer marketplace with real-time chat, radius discovery, listing wizard, and Supabase PostgreSQL schema.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
